@@ -1,11 +1,10 @@
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc,html
 import pandas as pd
 import numpy as np
 from dash.dependencies import Output, Input
 
-data = pd.read_csv("avocado.csv")
+data = pd.read_csv("data/avocado.csv")
 data["Date"] = pd.to_datetime(data["Date"], format="%Y-%m-%d")
 data.sort_values("Date", inplace=True)
 
@@ -167,4 +166,4 @@ def update_charts(region, avocado_type, start_date, end_date):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server()
